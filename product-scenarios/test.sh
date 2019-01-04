@@ -82,10 +82,11 @@ echo "output directory : ${OUTPUT_DIR}"
 export DATA_BUCKET_LOCATION=${INPUT_DIR}
 
 #=============== Execute Scenarios ===============================================
-
-
 mvn clean install -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
 -fae -B -f pom.xml
+
+#=============== Generate jacoco.exec dump ===========================================
+mvn jacoco:dump@pull-test-data -Dapp.port=36320 -Dskip.dump=false
 
 
 #=============== Copy Surefire Reports ===========================================
@@ -93,3 +94,8 @@ mvn clean install -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf
 echo "Copying surefire-reports to ${OUTPUT_DIR}"
 mkdir -p ${OUTPUT_DIR}
 find . -name "surefire-reports" -exec cp --parents -r {} ${OUTPUT_DIR} \;
+
+
+#=============== Copy jacoco.exec ===========================================
+cp target/*.exec ${OUTPUT_DIR}
+
