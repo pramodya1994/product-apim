@@ -113,3 +113,4 @@ mvn clean install -f ${HOME}/product-scenarios/code-coverage/pom.xml
 
 #=============== Remove resources folder ===============================================================
 #rm -rf ./product-scenarios/code-coverage/resources
+
