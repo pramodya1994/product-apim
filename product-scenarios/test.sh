@@ -86,7 +86,7 @@ mvn clean install -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf
 -fae -B -f pom.xml
 
 #=============== Generate jacoco.exec dump ===========================================
-cd ${HOME}/product-scenarios
+cd ${HOME}
 mvn jacoco:dump@pull-test-data -Dapp.port=36320 -Dskip.dump=false
 cd ${HOME}
 
@@ -98,19 +98,19 @@ cd ${HOME}
 
 
 #=============== Copy jacoco.exec to code-coverage directory ===========================================
-mkdir -p ${HOME}/product-scenarios/code-coverage/resources
-cp ${HOME}/product-scenarios/target/*.exec ${HOME}/product-scenarios/code-coverage/resources
+mkdir -p ${HOME}/code-coverage/resources
+cp ${HOME}/target/*.exec ${HOME}/code-coverage/resources
 
 #=============== Copy class files to code-coverage directory ===========================================
-#cp ${INPUT_DIR}/classes.zip ${HOME}/product-scenarios/code-coverage/resources
-#unzip ${HOME}/product-scenarios/code-coverage/resources/classes.zip -d ${HOME}/product-scenarios/code-coverage/resources
+cp ${INPUT_DIR}/classes.zip ${HOME}/code-coverage/resources
+unzip ${HOME}/code-coverage/resources/classes.zip -d ${HOME}/code-coverage/resources
 
 #=============== Execute code-coverage POM and generate coverage reports ===============================
-mvn clean install -f ${HOME}/product-scenarios/code-coverage/pom.xml
+mvn clean install -f ${HOME}/code-coverage/pom.xml
 
 #=============== Copy Code Coverage Reports ============================================================
-#cp -r ${HOME}/product-scenarios/code-coverage/target/scenario-code-coverage ${OUTPUT_DIR}
+#cp -r ${HOME}/code-coverage/target/scenario-code-coverage ${OUTPUT_DIR}
 
 #=============== Remove resources folder ===============================================================
-#rm -rf ./product-scenarios/code-coverage/resources
+#rm -rf ./code-coverage/resources
 
