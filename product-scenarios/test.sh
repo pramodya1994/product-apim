@@ -86,9 +86,8 @@ mvn clean install -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf
 -fae -B -f pom.xml
 
 #=============== Generate jacoco.exec dump ===========================================
-cd ${HOME}
 mvn jacoco:dump@pull-test-data -Dapp.port=36320 -Dskip.dump=false
-cd ${HOME}
+ls -l ${HOME}/target
 
 #=============== Copy Surefire Reports ===========================================
 
@@ -109,8 +108,8 @@ unzip ${HOME}/code-coverage/resources/classes.zip -d ${HOME}/code-coverage/resou
 mvn clean install -f ${HOME}/code-coverage/pom.xml
 
 #=============== Copy Code Coverage Reports ============================================================
-#cp -r ${HOME}/code-coverage/target/scenario-code-coverage ${OUTPUT_DIR}
+cp -r ${HOME}/code-coverage/target/scenario-code-coverage ${OUTPUT_DIR}
 
 #=============== Remove resources folder ===============================================================
-#rm -rf ./code-coverage/resources
+rm -rf ${HOME}/code-coverage/resources
 
