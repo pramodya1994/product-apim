@@ -86,7 +86,7 @@ mvn clean install -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf
 -fae -B -f pom.xml
 
 #=============== Generate jacoco.exec dump ===========================================
-mvn jacoco:dump@pull-test-data -Dapp.host=10.0.1.* -Dapp.port=36320 -Dskip.dump=false
+mvn jacoco:dump@pull-test-data -Dapp.host=localhost -Dapp.port=36320 -Dskip.dump=false
 ls -l ${HOME}/target
 
 #=============== Copy Surefire Reports ===========================================
