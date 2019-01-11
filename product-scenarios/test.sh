@@ -112,4 +112,3 @@ cp -r ${HOME}/code-coverage/target/scenario-code-coverage ${OUTPUT_DIR}
 
 #=============== Remove resources folder ===============================================================
 rm -rf ${HOME}/code-coverage/resources
-
