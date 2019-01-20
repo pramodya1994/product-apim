@@ -89,20 +89,21 @@
                                         <jacoco:report>
                                             <executiondata>
                                                 <fileset dir="../..">
-                                                    <include name="**/code-coverage/*/jacoco*.exec" />
+                                                    <include name="**/code-coverage/*/instance1/*/jacoco.exec" />
+                                                </fileset>
+                                                <fileset dir="../..">
+                                                    <include name="**/code-coverage/*/instance2/*/jacoco.exec" />
                                                 </fileset>
                                             </executiondata>
                                             <structure name="Scenario Coverage Report">
                                                 <classfiles>
                                                     <fileset dir="../..">
-                                                        <include name="**/code-coverage/*/classes/**" />
+                                                        <include name="**/code-coverage/*/instance1/*/classes/**" />
+                                                    </fileset>
+                                                    <fileset dir="../..">
+                                                        <include name="**/code-coverage/*/instance2/*/classes/**" />
                                                     </fileset>
                                                 </classfiles>
-                                                <sourcefiles encoding="UTF-8">
-                                                    <fileset dir="../..">
-                                                        <include name="**/src/**" />
-                                                    </fileset>
-                                                </sourcefiles>
                                             </structure>
                                             <html destdir="${project.build.directory}/scenario-code-coverage/jacoco" />
                                             <xml destfile="${project.build.directory}/scenario-code-coverage/jacoco/coverage-report.xml"/>
